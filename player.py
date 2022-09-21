@@ -2,9 +2,9 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.candidates = {
-            "person": set("Peacock", "Scarlet", "Plum", "Green", "Mustard", "White"),
-            "weapon": set("Candlestick", "Rope", "Pistol", "Knife"),
-            "room": set("Living Room", "Hall", "Dining Room", "Kitchen", "Spa")
+            "person": set(["Peacock", "Scarlet", "Plum", "Green", "Mustard", "White"]),
+            "weapon": set(["Candlestick", "Rope", "Pistol", "Knife"]),
+            "room": set(["Living Room", "Hall", "Dining Room", "Kitchen", "Spa"])
         }
         self.cards = {
             "person": set(),
@@ -12,15 +12,15 @@ class Player:
             "room": set()
         }
 
-    @abstractmethod
+    def deal(self, type, card):
+        self.cards[type].add(card)
+
     def should_accuse(self):
         pass
 
-    @abstractmethod
     def accuse(self):
         pass
 
-    @abstractmethod
     def guess(self):
         pass
 
