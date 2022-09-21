@@ -14,6 +14,8 @@ class Main:
             "weapon": None,
             "room": None
         }
+        for player in players:
+            player.assign_game(self)
 
     def deal(self):
         self.envelope["person"] = self.deck["person"].pop()
@@ -40,6 +42,9 @@ class Main:
         # printing cards for dealer confirmation
         # for player in players:
         #     print(player.name + str(player.cards))
+
+    def check_envelope(self, person, weapon, room):
+        return(self.envelope["person"] == person and self.envelope["weapon"] == weapon and self.envelope["room"] == room)
 
     def game(self):
         self.deal()

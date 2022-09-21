@@ -11,17 +11,23 @@ class Player:
             "weapon": set(),
             "room": set()
         }
+        self.game = None
+
+    def assign_game(self, game):
+        self.game = game
 
     def deal(self, type, card):
         self.cards[type].add(card)
+        self.candidates[type].remove(card)
 
     def should_accuse(self):
-        pass
+        return(all([len(v) for v in self.candidates.values() == 1]))
 
-    def accuse(self):
-        pass
+    def accuse(self, person, weapon, room):
+        return(self.game.check_envelope(person, weapon, room))
 
     def guess(self):
+        # options = ["person", "weapon", "room"]
         pass
 
     def has_card(self, type, card):
