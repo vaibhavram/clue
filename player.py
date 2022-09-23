@@ -54,8 +54,8 @@ class Player:
         else:
             return(None, None)
 
-    def process_shown_card(self, type, card, guesstype1 = None, guesscard1 = None, guesstype2 = None, guesscard2 = None):
-        if not type and not card:
+    def process_shown_card(self, shower, type, card, guesstype1 = None, guesscard1 = None, guesstype2 = None, guesscard2 = None):
+        if not shower:
             if guesscard1 not in self.cards[guesstype1]:
                 self.candidates[guesstype1] = set([guesscard1])
             if guesscard2 not in self.cards[guesstype2]:
